@@ -1,0 +1,24 @@
+name: 'html-proofer'
+description: 'Run html-proofer on a statically generated website'
+
+inputs:
+  path:
+    description: 'Path of the generated website'
+    required: false
+    default: '.'
+  allow_hash_href:
+    description: 'If `true`, ignores the `href="#"`'
+    required: false
+    default: 'false'
+  enforce_https:
+    description: "Fails a link if it's not marked as `https`."
+    required: false
+    default: 'false'
+  url_ignore:
+    description: 'A comma-separated list of Strings or RegExps containing URLs that are safe to ignore. It affects all HTML attributes. Note that non-HTTP(S) URIs are always ignored'
+    required: false
+    default: ''
+
+runs:
+  using: 'docker'
+  image: ./src/Dockerfile
