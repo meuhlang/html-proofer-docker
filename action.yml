@@ -21,4 +21,4 @@ inputs:
 
 runs:
   using: 'docker'
-  image: ./src/Dockerfile
+  image: docker://lvjp/html-proofer:v3.19.1-0
