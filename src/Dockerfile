@@ -17,5 +17,7 @@ FROM ruby:3.0.2-buster
 
 RUN gem install html-proofer --version "=3.19.1"
 
+COPY entrypoint.sh /
+
 ENTRYPOINT [ "/entrypoint.sh" ]
 CMD ["/usr/local/bundle/bin/htmlproofer"]
