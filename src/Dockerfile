@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-FROM ruby:3.0.1-buster
+FROM ruby:3.0.2-buster
 
 RUN gem install html-proofer --version "=3.19.1"
 
