@@ -19,6 +19,10 @@ main() {
     set -- "$@" --url-ignore "${INPUT_URL_IGNORE}"
   fi
 
+  if [ -n "${INPUT_INTERNAL_DOMAINS}" ]; then
+    set -- "$@" --internal-domains "${INPUT_INTERNAL_DOMAINS}"
+  fi
+
   htmlproofer "$@"
 }
 
