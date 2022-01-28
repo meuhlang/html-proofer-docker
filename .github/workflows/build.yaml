@@ -1,3 +1,5 @@
+---
+
 name: Build
 
 on: push
@@ -9,13 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - name: Build image
-        run: |
-          docker build \
-            --tag "local/${GITHUB_REPOSITORY}" \
-            --label "org.label-schema.build-date=$(date --rfc-3339=seconds)" \
-            --label "org.label-schema.vcs-ref=${GITHUB_SHA}" \
-            --label "org.label-schema.vcs-url=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}" \
-            ./src
+        run: >
+          docker
+          build
+          --tag "local/${GITHUB_REPOSITORY}"
+          --label "org.label-schema.build-date=$(date --rfc-3339=seconds)"
+          --label "org.label-schema.vcs-ref=${GITHUB_SHA}"
+          --label
+          "org.label-schema.vcs-url=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"
+          ./src
       - name: Check html-proofer install
         run: |
           docker run \
@@ -28,7 +32,8 @@ jobs:
             "local/${GITHUB_REPOSITORY}" \
             "lvjp/html-proofer:${GITHUB_REF/refs\/tags\//}"
       - name: Prepare action.yaml with local docker image
-        run: 'sed -i -e "s@image:.*@image: local/${GITHUB_REPOSITORY}@" action.yml'
+        run: >
+          sed -i -e "s@image:.*@image: local/${GITHUB_REPOSITORY}@" action.yml
       - name: Run regression tests
         uses: ./
         with:
