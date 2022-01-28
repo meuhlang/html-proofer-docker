@@ -1,3 +1,5 @@
+---
+
 name: 'html-proofer'
 description: 'Run html-proofer on a statically generated website'
 
@@ -15,11 +17,16 @@ inputs:
     required: false
     default: 'false'
   url_ignore:
-    description: 'A comma-separated list of Strings or RegExps containing URLs that are safe to ignore. It affects all HTML attributes. Note that non-HTTP(S) URIs are always ignored'
+    description: >
+      A comma-separated list of Strings or RegExps containing URLs
+      that are safe to ignore. It affects all HTML attributes.
+      Note that non-HTTP(S) URIs are always ignored.
     required: false
     default: ''
   internal_domains:
-    description: 'A comma-separated list of Strings containing domains that will be treated as internal urls.'
+    description: >
+      A comma-separated list of Strings containing domains that will be treated
+      as internal urls.
     required: false
     default: ''
 
